@@ -5,6 +5,7 @@ var keys = require("./keys.js");
 var fs = require("fs");
 
 var axios = require("axios");
+var moment = require("moment")
 
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
@@ -34,14 +35,35 @@ var input = process.argv[3]
 
 
 function concert() {
+    var artistName = process.argv[3]
+
     var queryUrl = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
 
-    axios.get(queryUrl).then(function(response) {
+    axios.get(queryUrl).then(
+        function(response) {
+            for (var i = 0; i < response.data.length; i++) {
+                console.log("Venue: " + response.data[i].venue.name);
+                console.log("City: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
+                console.log("Date: " + moment(response.data[i].datetime).format("L"));
+            }
         
-        console.log(response.data.Year)
-    });
-    
-
+        })
+        .catch(function(error) {
+          if (error.response) {
+            console.log("---------------Data---------------");
+            console.log(error.response.data);
+            console.log("---------------Status---------------");
+            console.log(error.response.status);
+            console.log("---------------Status---------------");
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
 
 }
     
