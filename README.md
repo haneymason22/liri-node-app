@@ -22,3 +22,15 @@ LIRI (not SIRI) is a command line node application that takes in parameters and 
 "node liri.js movie-this cinderella"
 
 ![2019-12-18 (4)](https://user-images.githubusercontent.com/55059602/71141892-3a6d0880-21db-11ea-9aea-dd89020200e5.png)
+
+## TECHNOLOGIES USED
+
+* Javascript
+* Node.js
+* Node Packages:
+    * Node-Spotify-API
+    * Axios
+    * DotEnv
+* APIs used:
+    * Bands in Town
+    * OMDB
