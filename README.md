@@ -21,5 +21,4 @@ LIRI (not SIRI) is a command line node application that takes in parameters and 
 ## EXAMPLE
 "node liri.js movie-this cinderella"
 
-![2019-12-18](https://user-images.githubusercontent.com/55059602/71141676-8ec3b880-21da-11ea-8051-16e49e23ac4c.png)
-
+![2019-12-18 (4)](https://user-images.githubusercontent.com/55059602/71141892-3a6d0880-21db-11ea-9aea-dd89020200e5.png)
