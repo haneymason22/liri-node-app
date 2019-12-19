@@ -20,13 +20,13 @@ switch (command) {
     case "spotify-this-song":
       song();
       break;
-    case 'movie-this':
+    case "movie-this":
       movie();
       break;
-    case 'do-what-it-says':
+    case "do-what-it-says":
       followDirections();
       break;
-  }
+};
   
 
 var input = process.argv[3]
@@ -77,14 +77,38 @@ function song() {
 
 
 function movie() {
-    var movieName = "";
+    var movieName = process.argv[3];
 
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
-    axios.get(queryUrl).then(function(response) {
-    console.log(response.data.Title)
-    console.log(response.data.Year)
-    });
+    axios.get(queryUrl).then(
+        function(response) {
+          console.log("Movie Title: " + response.data.Title);
+          console.log("Release Year: " + response.data.Year);
+          console.log("IMDB Rating: " + response.data.imdbRating);
+          console.log("Rotten Tomatoes Score: " + response.data.Rating);
+          console.log("Country: " + response.data.Country);
+          console.log("Language: " + response.data.Language);
+          console.log("Plot: " + response.data.Plot);
+          console.log("Actors: " + response.data.Actors);
+        })
+        .catch(function(error) {
+          if (error.response) {
+            console.log("---------------Data---------------");
+            console.log(error.response.data);
+            console.log("---------------Status---------------");
+            console.log(error.response.status);
+            console.log("---------------Status---------------");
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
+      
 }
 
 function followDirections() {

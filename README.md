@@ -18,3 +18,8 @@ LIRI (not SIRI) is a command line node application that takes in parameters and 
 * Cd into the folder you just created
 * Input command using syntax node liri.js "command" "movie/song/band"
 
+## EXAMPLE
+"node liri.js movie-this cinderella"
+
+![2019-12-18](https://user-images.githubusercontent.com/55059602/71141676-8ec3b880-21da-11ea-8051-16e49e23ac4c.png)
+
