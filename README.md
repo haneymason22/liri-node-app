@@ -16,5 +16,5 @@ LIRI (not SIRI) is a command line node application that takes in parameters and 
 * Clone the repo to your terminal
 * Run npm Install
 * Cd into the folder you just created
-* Input command using syntax node liri.js <command> <movie/song/band>
+* Input command using syntax node liri.js "command" "movie/song/band"
 
