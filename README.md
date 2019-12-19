@@ -22,14 +22,14 @@ LIRI (not SIRI) is a command line node application that takes in parameters and 
 
 EXAMPLE 1:
 
-Input "node liri.js concert-this journey" to see a (long) list of upcoming events with the venue name, city, and date included.
+Input "node liri.js concert-this journey" to see a (long) list of upcoming events for the rock band Journey with the venue name, city, and date included.
 
 
 ![2019-12-18 (5)](https://user-images.githubusercontent.com/55059602/71144269-14e3fd00-21e3-11ea-9141-85f01799ce56.png)
 
 EXAMPLE 2:
 
-Input "node liri.js movie-this cinderella" to show information on the first result for "Cinderella"
+Input "node liri.js movie-this cinderella" to show information on the first result for "Cinderella".
 
 ![2019-12-18 (4)](https://user-images.githubusercontent.com/55059602/71141892-3a6d0880-21db-11ea-9aea-dd89020200e5.png)
 
