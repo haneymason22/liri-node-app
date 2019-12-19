@@ -31,7 +31,8 @@ EXAMPLE 2:
 
 Input "node liri.js movie-this cinderella" to show information on the first result for "Cinderella".
 
-![2019-12-18 (4)](https://user-images.githubusercontent.com/55059602/71141892-3a6d0880-21db-11ea-9aea-dd89020200e5.png)
+![2019-12-18 (6)](https://user-images.githubusercontent.com/55059602/71145227-79ed2200-21e6-11ea-8dd3-940352e7edef.png)
+
 
 ## TECHNOLOGIES USED
 

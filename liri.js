@@ -7,7 +7,7 @@ var fs = require("fs");
 var axios = require("axios");
 var moment = require("moment")
 
-var Spotify = require('node-spotify-api');
+var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 
 
@@ -71,27 +71,23 @@ function concert() {
 
 
 function song() {
-    var songName = "";
-    if (input === undefined) {
-      songName = 'The Sign Ace of Base'
-    } else {
-      songName = input;
+    if (!input) {
+        input = "The Sign Ace of Base";
     }
-    console.log(`--------------------`);
-    console.log(`Here's what I found about the song!`)
-    spotify.search({ type: 'track', query: song }, function (error, data) {
-      if (!error) {
-        console.log(`Song: ${data.tracks.items[0].name}`);
-        console.log(`Artist(s): ${data.tracks.items[0].artists[0].name}`);
-        console.log(`Album: ${data.tracks.items[0].album.name}`);
-        console.log(`Preview Link: ${data.tracks.items[0].external_urls.spotify}`);
-        var songData = `\nUsed spotify-this-song to find: \nArtist: ${data.tracks.items[0].artists[0].name} \nSong Name: ${data.tracks.items[0].name} \nSpotify Preview Link: ${data.tracks.items[0].external_urls.spotify} \nAlbum: ${data.tracks.items[0].album.name}\n--------------------`
-        fs.appendFile('log.txt', songData, function (error) {
-          if (error) throw error;
-        });
-      }
+
+    spotify.search({type: "track", query: userQuery}, function(err, data) {
+        if (err) {
+            logThis(err);
+        }
+
+        var userSong = data.tracks.items;
+        logThis("Artist: " + userSong[0].artists[0].name);
+        logThis("Song Name: " + userSong[0].name);
+        logThis("Preview Link: " + userSong[0].preview_url);
+        logThis("Album: " + userSong[0].album.name);
     });
-  }
+};
+
   
 
 
@@ -99,6 +95,11 @@ function song() {
 
 
 function movie() {
+
+    if (!movieName) {
+        movieName = "Mr. Nobody";
+    }
+    
     var movieName = process.argv[3];
 
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
@@ -108,7 +109,7 @@ function movie() {
           console.log("Movie Title: " + response.data.Title);
           console.log("Release Year: " + response.data.Year);
           console.log("IMDB Rating: " + response.data.imdbRating);
-          console.log("Rotten Tomatoes Score: " + response.data.Rating);
+          console.log("Rotten Tomatoes Score: " + response.data.Ratings[1].Value);
           console.log("Country: " + response.data.Country);
           console.log("Language: " + response.data.Language);
           console.log("Plot: " + response.data.Plot);
